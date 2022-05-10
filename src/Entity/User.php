@@ -313,9 +313,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getPublicAvatar(): string
     {
         if ($this->getAvatar()) {
-            return '/public/' . $this->getAvatarDir() . $this->getAvatar();
+            return '/' . $this->getAvatarDir() . $this->getAvatar();
         }
-        return '/public/' . $this->getDefaultAvatarDir() . $this->getDefaultAvatar();
+        return '/' . $this->getDefaultAvatarDir() . $this->getDefaultAvatar();
     }
 
     /**
