@@ -7,6 +7,7 @@ use App\Traits\DatetimeRange;
 use App\Validator as BookingAssert;
 use DateTime;
 use DateTimeInterface;
+use DateTimeZone;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -146,7 +147,8 @@ class Booking
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->uuid = Uuid::v4();
         $this->bookingMembers = new ArrayCollection();
     }
@@ -184,6 +186,8 @@ class Booking
             return $this->getStartDatetime()->format('d.m.Y H:i') . ' - ' . $this->getEndDatetime()->format('d.m.Y H:i');
         }
         $datetime = new DateTime();
+        $timezone = new DateTimeZone('Europe/Moscow');
+        $datetime->setTimezone($timezone);
         return $datetime->format('d.m.Y H:i') . ' - ' . $datetime->modify('+30 min')->format('d.m.Y H:i');
     }
 
@@ -383,6 +387,8 @@ class Booking
     public function getProcessStatus(): string
     {
         $currentDatetime = new DateTime();
+        $timezone = new DateTimeZone('Europe/Moscow');
+        $currentDatetime->setTimezone($timezone);
         if ($currentDatetime < $this->getStartDatetime()) {
             return self::STATUS_WAITING;
         } elseif ($currentDatetime < $this->getEndDatetime()) {
@@ -399,6 +405,8 @@ class Booking
     public function getProcessPercentage(): float
     {
         $currentDatetime = new DateTime();
+        $timezone = new DateTimeZone('Europe/Moscow');
+        $currentDatetime->setTimezone($timezone);
         if ($currentDatetime < $this->getStartDatetime()) {
             return 0;
         }
@@ -462,5 +470,4 @@ class Booking
 
         return $this;
     }
-
 }
