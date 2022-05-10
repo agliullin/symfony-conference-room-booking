@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Room info{% endtrans %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="page-header mt-3">
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule') }}">{% trans %}Schedule{% endtrans %}</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule_room', {'uuid': room.uuid}) }}">{{ room.name }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans %}Room info{% endtrans %}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header d-flex justify-content-between">
+                    <h2 class="card-title">{% trans %}Room info{% endtrans %}</h2>
+                    <div class="card-toolbar d-flex align-items-center">
+                        <a class="btn btn-primary me-2" href="{{ path('app_room_edit', {'uuid': room.uuid}) }}">
+                            {% trans %}Edit{% endtrans %}
+                        </a>
+                        {{ include('room/_delete_form.html.twig') }}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="room-name d-flex align-items-center">
+                                    <strong>{% trans %}Name{% endtrans %}</strong>
+                                </div>
+                                <div class="room-value d-flex align-items-center">
+                                    {{ room.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

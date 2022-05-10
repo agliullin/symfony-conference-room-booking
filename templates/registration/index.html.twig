@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Registration{% endtrans %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h2 class="card-title">{% trans %}Registration{% endtrans %}</h2>
+                    </div>
+                    {{ form_start(form) }}
+                    <div class="card-body">
+                        {{ form_widget(form) }}
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group mb-0">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary">
+                                    {% trans %}Register{% endtrans %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

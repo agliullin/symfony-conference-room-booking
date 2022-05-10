@@ -1,0 +1,21 @@
+@import "fonts";
+@import "variables";
+@import "theme";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~daterangepicker/daterangepicker.css";
+@import "~dropify/src/sass/dropify";
+
+@import "bootstrap/styles";
+@import "bootstrap/avatar";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/buttons";
+@import "bootstrap/card";
+@import "bootstrap/dropdown";
+@import "bootstrap/form";
+@import "bootstrap/tooltip";
+
+@import "plugins/fullcalendar";
+@import "plugins/swal";
+
+@import "layouts/header";

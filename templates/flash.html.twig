@@ -1,0 +1,24 @@
+{% for label, messages in app.flashes(['success', 'danger']) %}
+    {% for message in messages %}
+        <div class="modal fade" id="alert-modal">
+            <div class="modal-dialog modal-dialog-centered text-center" role="document">
+                <div class="modal-content tx-size-sm">
+                    <div class="modal-body text-center p-4 pb-5">
+                        {% if label == 'success' %}
+                            <i class="icon icon-check fs-70 text-{{ label }} lh-1 my-3 d-inline-block"></i>
+                            <h4 class="text-{{ label }} tx-semibold">{% trans %}Success{% endtrans %}</h4>
+                        {% endif %}
+                        {% if label == 'danger' %}
+                            <i class="icon icon-close fs-70 text-{{ label }} lh-1 my-3 d-inline-block"></i>
+                            <h4 class="text-{{ label }} tx-semibold">{% trans %}Error{% endtrans %}</h4>
+                        {% endif %}
+                        <p class="mg-b-20 mg-x-20">{{ message|trans }}</p>
+                        <button aria-label="Close" class="btn btn-{{ label }} pd-x-25" data-bs-dismiss="modal">
+                            {% trans %}Ok{% endtrans %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}

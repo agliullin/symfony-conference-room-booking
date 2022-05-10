@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}CRB{% endtrans %}
+{% endblock %}
+
+{% block body %}
+    {# Not translated page #}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">Информация</h2>
+                    </div>
+                    <div class="card-body">
+                        <p><b>Conference room booking</b> - система для бронирования отдельных комнат под определенные нужды для группы лиц.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">Начало работы</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Для работы с системой необходимо <a href="{{ path('app_login') }}">авторизоваться</a> / <a href="{{ path('app_registration') }}">зарегистрироваться</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">Основное</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Основная страница для работы - это <a href="{{ path('app_schedule') }}">расписание</a>.
+                        </p>
+                        <p>
+                            По началу необходимо <a href="{{ path('app_room_new') }}">добавить комнату</a>.
+                        </p>
+                        <p>
+                            Далее можно добавлять бронь внутри комнаты. Основные поля для брони:
+                        </p>
+                        <ul>
+                            <li>
+                                Время брони
+                            </li>
+                            <li>
+                                Комната
+                            </li>
+                            <li>
+                                Цвет
+                            </li>
+                            <li>
+                                Наименование
+                            </li>
+                            <li>
+                                Участники
+                            </li>
+                        </ul>
+                        <p>
+                            Минимальный промежуток для брони - 30 минут.
+                        </p>
+                        <p>
+                            Внутри одной комнаты время для брони не пересекается.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">Аккаунт</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Есть возможность взаимодействия с собственным аккаунтом:
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="{{ path('app_account') }}">Просмотр</a> информации об аккаунте
+                            </li>
+                            <li>
+                                <a href="{{ path('app_account_edit') }}">Изменение</a> информации об аккаунте
+                                <ul>
+                                    <li>
+                                        Аватар
+                                    </li>
+                                    <li>
+                                        Имя
+                                    </li>
+                                    <li>
+                                        Email
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_account_password') }}">Изменение</a> пароля
+                            </li>
+                            <li>
+                                <a href="{{ path('app_account_owner') }}">Просмотр</a> мероприятий, которые организую
+                            </li>
+                            <li>
+                                <a href="{{ path('app_account_member') }}">Просмотр</a> мероприятий, в которых принимаю участие
+                            </li>
+                        </ul>
+                        <p>
+                            По умолчанию генерируется уникальная аватарка для профиля.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

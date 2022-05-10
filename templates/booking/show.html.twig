@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Booking info{% endtrans %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="page-header mt-3">
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule') }}">{% trans %}Schedule{% endtrans %}</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule_room', {'uuid': booking.room.uuid}) }}">{{ booking.room.name }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ booking.name }}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header d-flex justify-content-between">
+                    <h2 class="card-title">{% trans %}Booking info{% endtrans %}</h2>
+                    <div class="card-toolbar d-flex align-items-center">
+                        <a class="btn btn-primary me-2" href="{{ path('app_booking_edit', {'uuid': booking.uuid}) }}">{% trans %}Edit{% endtrans %}</a>
+                        {{ include('booking/_delete_form.html.twig') }}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Status{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    {{ booking.getProcessStatus()|trans }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-1 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Start datetime{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}End datetime{% endtrans %}</strong>
+                                </div>
+                            </div>
+                            <div class="w-100 mb-1">
+                                <div class="progress progress-md">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: {{ booking.getProcessPercentage() }}%;">{{ booking.getProcessPercentage() }}%</div>
+                                </div>
+                            </div>
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-value">
+                                    {{ booking.startDatetime ? booking.startDatetime|date('d.m.Y H:i') : '' }}
+                                </div>
+                                <div class="booking-value">
+                                    {{ booking.endDatetime ? booking.endDatetime|date('d.m.Y H:i') : '' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Name{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    {{ booking.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Color{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    <span class="badge p-3"
+                                          style="background-color: {{ booking.color }};"> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Room{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    {{ booking.room.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Owner{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    {{ booking.owner.name }} ({{ booking.owner.email }})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="w-100 mb-4 d-flex justify-content-between">
+                                <div class="booking-name d-flex align-items-center">
+                                    <strong>{% trans %}Booking members{% endtrans %}</strong>
+                                </div>
+                                <div class="booking-value d-flex align-items-center">
+                                    {% if booking.getBookingMembers()|length %}
+                                    <div class="avatar-list">
+                                        {% for member in booking.getBookingMembers() %}
+                                            <span class="avatar cover-image"
+                                                  style="background-image: url('{{ asset(member.getPublicAvatar()) }}');"
+                                                  data-toggle="tooltip"
+                                                  data-bs-placement="bottom"
+                                                  data-original-title="{{ member.name }} ({{ member.email }})"
+                                                  data-bs-original-title="{{ member.name }} ({{ member.email }})">
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {% trans %}No data{% endtrans %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

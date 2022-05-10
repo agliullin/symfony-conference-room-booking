@@ -1,0 +1,116 @@
+.header {
+  background: $white;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid $border;
+}
+
+.header {
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  .mega-menu {
+    width: 350px;
+  }
+  .nav-tabs {
+    margin: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    border-bottom: 1px solid $white-2;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+  }
+}
+
+.header {
+  .dropdown-menu {
+    box-shadow: 0 10px 40px 0 rgba(104, 113, 123, .2);
+    border: 1px solid $border;
+    top: 3.5rem !important;
+    .badge {
+      padding: 3px 6px;
+    }
+    .dropdown-item {
+      border-bottom: 1px solid $border;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .dropdown-item {
+    color: $default-color;
+  }
+  .notifications-menu,
+  .message-menu {
+    h5 {
+      font-size: 13.5px;
+      color: $default-color;
+      font-weight: 500;
+    }
+    span {
+      font-size: 12px;
+      color: #76839a;
+    }
+  }
+  .dropdown-menu {
+    box-shadow: 0 10px 40px 0 rgba(104, 113, 123, .2);
+    border: 1px solid $border;
+    .badge {
+      padding: 3px 6px;
+    }
+    .dropdown-item {
+      border-bottom: 1px solid $border;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+  .message-menu .wd-90p {
+    width: 90%;
+  }
+  .profile-block {
+    .dropdown-item {
+      padding: .75rem 1.75rem !important;
+      .dropdown-icon {
+        font-size: 16px;
+        color: $primary-1;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          top: 5px;
+          bottom: 0;
+          border-radius: 50%;
+          right: 3px;
+          background: rgba($primary-1, 0);
+        }
+      }
+    }
+  }
+}
+
+.dropdown .avatar.profile-user {
+  width: 2.2rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+}
+
+.header {
+  .navbar {
+    a.nav-link {
+      display: flex;
+      text-decoration: none;
+      position: relative;
+      color: #7b8191;
+      font-weight: 400;
+    }
+  }
+}

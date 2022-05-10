@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Editing booking{% endtrans %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="page-header mt-3">
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule') }}">{% trans %}Schedule{% endtrans %}</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('app_schedule_room', {'uuid': booking.room.uuid}) }}">{{ booking.room.name }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('app_booking_show', {'uuid': booking.uuid}) }}">{{ booking.name }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{% trans %}Editing booking{% endtrans %}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h2 class="card-title">{% trans %}Editing booking{% endtrans %}</h2>
+                </div>
+                {{ include('booking/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

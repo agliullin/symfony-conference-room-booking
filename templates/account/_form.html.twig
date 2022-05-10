@@ -1,0 +1,24 @@
+{{ form_start(form) }}
+<div class="card-body">
+{{ form_errors(form) }}
+{{ form_widget(form.avatar, { 'attr': {'data-default-file': app.user.getPublicAvatar() } }) }}
+{{ form_errors(form.avatar) }}
+{{ form_widget(form) }}
+</div>
+<div class="card-footer">
+    <button class="btn btn-primary">{% trans %}Update{% endtrans %}</button>
+</div>
+{{ form_end(form) }}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('dropify') }}
+
+    <script type="application/javascript">
+        var drEvent = $('.dropify').dropify();
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            $('#account_avatar_remove').val(1);
+        });
+    </script>
+{% endblock %}

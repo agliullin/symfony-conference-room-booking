@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+<div class="card-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group mb-3">
+                {{ form_label(form.datetime_range, null, { 'label_attr': {'class': 'col-sm-2 control-label'} }) }}
+                <div class="input-group date" id="datetimepicker">
+                    {{ form_widget(form.datetime_range) }}
+                </div>
+                {{ form_errors(form.datetime_range) }}
+            </div>
+            {{ form_widget(form) }}
+        </div>
+    </div>
+</div>
+<div class="card-footer">
+    <button class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
+</div>
+{{ form_end(form) }}

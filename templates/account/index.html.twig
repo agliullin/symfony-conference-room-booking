@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Account info{% endtrans %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">{% trans %}Account info{% endtrans %}</h2>
+                        <div class="card-toolbar d-flex align-items-center">
+                            <a class="btn btn-secondary me-3" href="{{ path('app_account_password') }}">{% trans %}Edit password{% endtrans %}</a>
+                            <a class="btn btn-primary" href="{{ path('app_account_edit') }}">{% trans %}Edit{% endtrans %}</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="w-100 mb-3 d-flex justify-content-between">
+                                    <div class="account-name d-flex align-items-center">
+                                        <strong>{% trans %}User name{% endtrans %}</strong>
+                                    </div>
+                                    <div class="account-value">
+                                        {{ app.user.name }}
+                                    </div>
+                                </div>
+                                <div class="w-100 mb-3 d-flex justify-content-between">
+                                    <div class="account-name d-flex align-items-center">
+                                        <strong>{% trans %}Email{% endtrans %}</strong>
+                                    </div>
+                                    <div class="account-value">
+                                        {{ app.user.email }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+.avatar-list {
+  margin: 0 0 -.5rem;
+  padding: 0;
+  font-size: 0;
+  .avatar {
+    margin-bottom: .5rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: $white;
+    font-weight: 500;
+    font-size: .875rem;
+    background-size: cover;
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
+  }
+}

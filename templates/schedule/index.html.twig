@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}Schedule{% endtrans %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <h2 class="card-title">{% trans %}Schedule{% endtrans %}</h2>
+                        <div class="card-toolbar d-flex align-items-center">
+                            <a class="btn btn-primary" href="{{ path('app_room_new') }}">Добавить комнату</a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% for room in rooms %}
+                            <div class="col-12 mb-3">
+                                <div class="w-100 d-flex justify-content-between">
+                                    <div class="room-name d-flex align-items-center">
+                                        <strong>{{ room.name }}</strong>
+                                    </div>
+                                    <div class="room-action">
+                                        <a class="btn btn-success me-2" href="{{ path('app_schedule_room', {'uuid': room.uuid}) }}"><i class="fe fe-calendar"></i> Расписание</a>
+                                        <a class="btn btn-default me-2" href="{{ path('app_room_show', {'uuid': room.uuid}) }}"><i class="fe fe-eye"></i></a>
+                                        <a class="btn btn-default" href="{{ path('app_room_edit', {'uuid': room.uuid}) }}"><i class="fe fe-edit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            {% trans %}No data{% endtrans %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

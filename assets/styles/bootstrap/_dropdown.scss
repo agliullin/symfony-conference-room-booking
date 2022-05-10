@@ -1,0 +1,107 @@
+.dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid #e9ecef;
+}
+.drop-heading {
+  padding: 1rem 1rem;
+  color: #8f9daf;
+}
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1.5rem !important;
+  clear: both;
+  font-weight: 400;
+  color: #6e84a3;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.dropdown-item {
+  &:hover,
+  &:focus,
+  &.active,
+  &:active {
+    text-decoration: none;
+    background-color: $primary-005;
+  }
+  &.disabled,
+  &:disabled {
+    color: $white;
+    background-color: transparent;
+  }
+}
+.dropdown-menu.show {
+  display: block;
+  margin: 0;
+  border: 1px solid #eaf2f6;
+  box-shadow: 0 3px 9px 0 rgba(104, 113, 123, 0.15);
+  border-radius: 7px;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 8;
+  display: none;
+  float: left;
+  box-shadow: 0 1px 2px 0 $black-05;
+  min-width: 12rem;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: $white;
+  >li>a {
+    display: block;
+    padding: 8px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.428571429;
+    color: #76839a;
+    white-space: nowrap;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: #76839a;
+      background-color: $primary-005;
+    }
+  }
+}
+.dropdown-menu-arrow:before {
+  content: '';
+  width: 13px;
+  height: 13px;
+  background: $white;
+  position: absolute;
+  top: -7px;
+  right: 28px;
+  transform: rotate(45deg);
+  border-top: 1px solid $border;
+  border-left: 1px solid $border;
+}
+.dropdown {
+  display: block;
+}
+.header .dropdown .nav-link.icon:hover {
+  background: none !important;
+}
+.dropdown-menu-arrow.dropdown-menu-end {
+  &:before,
+  &:after {
+    left: auto;
+    right: 26px;
+  }
+}
+.dropdown-icon {
+  color: #8f9daf;
+  margin-right: .5rem;
+  margin-left: -.5rem;
+  width: 1em;
+  display: inline-block;
+  text-align: center;
+  vertical-align: -1px;
+}
