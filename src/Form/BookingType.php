@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Booking;
-use App\Entity\BookingMember;
 use App\Entity\Room;
 use App\Entity\User;
 use App\Repository\RoomRepository;

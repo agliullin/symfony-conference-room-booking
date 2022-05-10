@@ -59,7 +59,8 @@ class Room
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->uuid = Uuid::v4();
         $this->bookings = new ArrayCollection();
     }
@@ -130,5 +131,4 @@ class Room
         }
         return $this;
     }
-
 }

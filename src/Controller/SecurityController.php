@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
- * Login / logout controlller
+ * Login / logout controller
  */
 class SecurityController extends AbstractController
 {
